@@ -1,0 +1,10 @@
+{
+  "clientTypeId": 5,
+  "languageCode": "en",
+
+  "userName": "userName",
+  "password": "password",
+  "sessionProductId": "productID",
+  "numLaunchTokens": 1,
+  "marketType": "market"
+}
