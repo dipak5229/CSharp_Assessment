@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
 namespace CSharpAssessment
 {
@@ -13,6 +14,8 @@ namespace CSharpAssessment
     public class TestClass
     {
         string TokenEndPoint = "accounts/login/real";
+        public static TestContext testContext { get; set; }
+        
 
         // Getting attributes from config file
         public string clientId = System.Configuration.ConfigurationManager.AppSettings["clientId"];

@@ -52,11 +52,11 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GetTokenRequestDTO.cs" />
-    <Compile Include="GetTokenResponseDTO.cs" />
+    <Compile Include="Model Classes\GetTokenRequestDTO.cs" />
+    <Compile Include="Model Classes\GetTokenResponseDTO.cs" />
     <Compile Include="HelperClass.cs" />
-    <Compile Include="PlayGameRequestDTO.cs" />
-    <Compile Include="PlayGameResponseDTO.cs" />
+    <Compile Include="Model Classes\PlayGameRequestDTO.cs" />
+    <Compile Include="Model Classes\PlayGameResponseDTO.cs" />
     <Compile Include="TestClass.cs" />
     <Compile Include="WrapperClass.cs" />
   </ItemGroup>
