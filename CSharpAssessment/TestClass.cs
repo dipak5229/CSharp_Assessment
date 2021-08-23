@@ -47,7 +47,8 @@ namespace CSharpAssessment
         [Test]
         public void PlayGameBalance()
         {
-            var content = File.ReadAllText(@"D:\Users\dipakj\source\repos\CSharpAssessment\CSharpAssessment\TestData\GamePlayTestData.json");
+            var content = File.ReadAllText(TestContext.CurrentContext.WorkDirectory + "\\TestData\\GamePlayTestData.json");
+            //var content = File.ReadAllText(@"D:\Users\dipakj\source\repos\CSharpAssessment\CSharpAssessment\TestData\GamePlayTestData.json");
             PlayGameRequestDTO testdata = JsonConvert.DeserializeObject<PlayGameRequestDTO>(content);
 
             var GamePlay = new PlayGameRequestDTO();
