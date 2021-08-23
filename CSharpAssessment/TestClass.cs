@@ -27,7 +27,8 @@ namespace CSharpAssessment
         [Test]
         public void GetToken()
         {
-            var content = File.ReadAllText(@"D:\Users\dipakj\source\repos\CSharpAssessment\CSharpAssessment\TestData\TokenTestData.json");
+            var content = File.ReadAllText(TestContext.CurrentContext.WorkDirectory+"\\TestData\\TokenTestData.json");
+            //var content = File.ReadAllText(@"D:\Users\dipakj\source\repos\CSharpAssessment\CSharpAssessment\TestData\TokenTestData.json");
             GetTokenRequestDTO testdata = JsonConvert.DeserializeObject<GetTokenRequestDTO>(content);
 
             var tokendata = new GetTokenRequestDTO();
