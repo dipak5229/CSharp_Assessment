@@ -27,8 +27,8 @@ namespace CSharpAssessment
         [Test]
         public void GetToken()
         {
-            var content = File.ReadAllText(TestContext.CurrentContext.WorkDirectory+"\\TestData\\TokenTestData.json");
-            //var content = File.ReadAllText(@"D:\Users\dipakj\source\repos\CSharpAssessment\CSharpAssessment\TestData\TokenTestData.json");
+            string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var content = File.ReadAllText(Path.Combine(assemblyPath + @"\TestData\TokenTestData.json"));
             GetTokenRequestDTO testdata = JsonConvert.DeserializeObject<GetTokenRequestDTO>(content);
 
             var tokendata = new GetTokenRequestDTO();
@@ -47,8 +47,8 @@ namespace CSharpAssessment
         [Test]
         public void PlayGameBalance()
         {
-            var content = File.ReadAllText(TestContext.CurrentContext.WorkDirectory + "\\TestData\\GamePlayTestData.json");
-            //var content = File.ReadAllText(@"D:\Users\dipakj\source\repos\CSharpAssessment\CSharpAssessment\TestData\GamePlayTestData.json");
+            string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            var content = File.ReadAllText(Path.Combine(assemblyPath+@"\TestData\GamePlayTestData.json"));
             PlayGameRequestDTO testdata = JsonConvert.DeserializeObject<PlayGameRequestDTO>(content);
 
             var GamePlay = new PlayGameRequestDTO();

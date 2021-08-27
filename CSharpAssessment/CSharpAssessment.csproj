@@ -63,7 +63,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="TestData\GamePlayTestData.json" />
+    <None Include="TestData\GamePlayTestData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TestData\TokenTestData.json" />
   </ItemGroup>
   <ItemGroup />
