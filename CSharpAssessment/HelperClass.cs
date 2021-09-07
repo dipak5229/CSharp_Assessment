@@ -19,14 +19,14 @@ namespace CSharpAssessment
             return restClient;
         }
 
-        public RestRequest CreateTokenPostRequest(String payload, string guid)
+        public RestRequest CreateTokenPostRequest(dynamic payload, string guid)
         {
             var restRequest = new RestRequest(Method.POST);
-            restRequest.AddHeader("Content-Type", "application/json");
+            restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
+            restRequest.AddHeader("Accept", "application/json");
             restRequest.AddHeader("X-CorrelationId", guid);
             restRequest.AddHeader("X-Forwarded-For", guid);
             restRequest.AddHeader("X-Clienttypeid", "5");
-            restRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
             return restRequest;
         }
 

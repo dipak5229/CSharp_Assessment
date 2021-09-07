@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,9 @@ namespace CSharpAssessment
             var jsonReq = user.serialize(payload);
             var request = user.CreateTokenPostRequest(jsonReq, guid);
             var responce = user.GetResponce(url, request);
+            //GetTokenResponseDTO content = JsonConvert.DeserializeObject<GetTokenResponseDTO>(responce.Content);
             GetTokenResponseDTO content = user.GetContent<GetTokenResponseDTO>(responce);
             return content;
-
         }
 
         public PlayGameResponseDTO GetBalance(string endpoint, dynamic payload, string productID, String ModuleID, string token)

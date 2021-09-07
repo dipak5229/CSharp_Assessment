@@ -6,37 +6,34 @@ using System.Threading.Tasks;
 
 namespace CSharpAssessment
 {
-    class PlayGameResponseDTO
-    {
-        public class GamePlayResponseDTO
+        public partial class PlayGameResponseDTO
         {
-
-            public Context context { get; set; }
-            public Packet packet { get; set; }
-        }
-        public class Financials
-        {
-            public double betAmount { get; set; }
-            public double payoutAmount { get; set; }
+            public Context Context { get; set; }
+            public Packet Packet { get; set; }
         }
 
-        public class Balances
+        public partial class Context
         {
-            public int loyaltyBalance { get; set; }
-            public double totalInAccountCurrency { get; set; }
+            public Financials Financials { get; set; }
+            public Balances Balances { get; set; }
         }
 
-        public class Context
+        public partial class Balances
         {
-            public Financials financials { get; set; }
-            public Balances balances { get; set; }
+            public long LoyaltyBalance { get; set; }
+            public long TotalInAccountCurrency { get; set; }
         }
 
-        public class Packet
+        public partial class Financials
         {
-            public string payload { get; set; }
-            public int packetType { get; set; }
-            public bool isBase64Encoded { get; set; }
+            public long BetAmount { get; set; }
+            public long PayoutAmount { get; set; }
+        }
+
+        public partial class Packet
+        {
+            public string Payload { get; set; }
+            public long PacketType { get; set; }
+            public bool IsBase64Encoded { get; set; }
         }
     }
-}

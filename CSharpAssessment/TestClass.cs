@@ -32,16 +32,17 @@ namespace CSharpAssessment
             GetTokenRequestDTO testdata = JsonConvert.DeserializeObject<GetTokenRequestDTO>(content);
 
             var tokendata = new GetTokenRequestDTO();
-            tokendata.UserName = testdata.UserName;
-            tokendata.Password = testdata.Password;
-            tokendata.SessionProductId = testdata.SessionProductId;
-            tokendata.NumLaunchTokens = testdata.NumLaunchTokens;
-            tokendata.MarketType = testdata.MarketType;
-            tokendata.ClientTypeId = testdata.ClientTypeId;
-            tokendata.LanguageCode = testdata.LanguageCode;
+            tokendata.userName = testdata.userName;
+            tokendata.password = testdata.password;
+            tokendata.sessionProductId = testdata.sessionProductId;
+            tokendata.numLaunchTokens = testdata.numLaunchTokens;
+            tokendata.marketType = testdata.marketType;
+            tokendata.clientTypeId = testdata.clientTypeId;
+            tokendata.languageCode = testdata.languageCode;
 
             var wrapper = new WrapperClass<GetTokenResponseDTO>();
             createToken = wrapper.getUserToken(TokenEndPoint, tokendata, guid);
+            Assert.AreEqual(createToken.tokens.userToken, "JYDFGDFGFDGRTMPWZDFDFG");
         }
 
         [Test]
@@ -59,16 +60,22 @@ namespace CSharpAssessment
 
             var GamePlayEndpoint = $"v1/games/module/{moduleId}/client/{clientId}/play";
             var wrapper2 = new WrapperClass<PlayGameResponseDTO>();
-            
-            try
-            {
-                var newToken = createToken.tokens.userToken;
-                var balance = wrapper2.GetBalance(GamePlayEndpoint, GamePlay, productId, moduleId, newToken);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Empty Token returned: "+ e.StackTrace);
-            }
+
+            var newToken = createToken.tokens.userToken; // "JYDFGDFGFDGRTMPWZDFDFG" ;
+            var balance = wrapper2.GetBalance(GamePlayEndpoint, GamePlay, productId, moduleId, newToken);
+            var amount = balance.Context.Balances.TotalInAccountCurrency;
+            Assert.AreEqual(amount, "10000.0");
+            //try
+            //{
+            //    var newToken = createToken.tokens.userToken; // "JYDFGDFGFDGRTMPWZDFDFG" ;
+            //    var balance = wrapper2.GetBalance(GamePlayEndpoint, GamePlay, productId, moduleId, newToken);
+            //    var amount = balance.Context.Balances.TotalInAccountCurrency;
+            //    Assert.AreEqual(amount, "10000.0");
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine("Empty Token returned: "+ e.StackTrace);
+            //}
         }
     }
 }

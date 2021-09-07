@@ -8,12 +8,12 @@ namespace CSharpAssessment
 {
     public class GetTokenRequestDTO
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string SessionProductId { get; set; }
-        public long NumLaunchTokens { get; set; }
-        public string MarketType { get; set; }
-        public long ClientTypeId { get; set; }
-        public string LanguageCode { get; set; }
+        public string userName { get; set; }
+        public string password { get; set; }
+        public string sessionProductId { get; set; }
+        public long numLaunchTokens { get; set; }
+        public string marketType { get; set; }
+        public long clientTypeId { get; set; }
+        public string languageCode { get; set; }
     }
 }
